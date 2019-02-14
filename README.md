@@ -6,6 +6,8 @@ also known as ez Job Creator, ui to easily create jobs for gmod
  
  ![](https://i.imgur.com/47nbNtg.png)
  
+ (Don't forget to edit your steamid in : gmod-ez-job-creator/lua/autorun/sh_ezjobs.lua )
+ 
  DESCRIPTION FROM THE ADDON PAGE :
  
  
