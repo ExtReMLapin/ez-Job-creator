@@ -1,7 +1,7 @@
 local pauseeveryframe = 1
 local folderblacklist = {"models/xqm/", "models/workshop/", "models/weapons/", "models/xeon133/", "models/w_models/", "models/v_models/", "models/vehicle/", "models/shadertest/", "models/props_windows/"}
 ezJobs.pmfinder = {}
-ezJobs.pmfinder.listensers = {} -- admins listening for the data
+ezJobs.pmfinder.listensers = {} -- admins listening to the data
 ezJobs.pmfinder.coroutinestatus = 0
 ezJobs.pmfinder.countstatus = 0
 

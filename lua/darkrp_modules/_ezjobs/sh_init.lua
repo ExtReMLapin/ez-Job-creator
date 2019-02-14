@@ -1,7 +1,6 @@
 hook.Add("loadCustomDarkRPItems", "ezjobs init", function()
-
-	hook.Add("ezJobsLoaded", "dada", function()
-		--[[
+	hook.Add("ezJobsLoaded", "dada", function() end)
+	--[[
 			Here you're supposed to put your job config like : 
 
 			GAMEMODE.CivilProtection = {
@@ -22,9 +21,6 @@ hook.Add("loadCustomDarkRPItems", "ezjobs init", function()
 		!!! ONLY IF YOU'RE USING JOBS CREATED WITH EZJOBS IN IT !!!
 
 		--]]
-	end)
-
-
 	include("ezjobs/sh_main.lua")
 
 	if CLIENT then
@@ -32,39 +28,46 @@ hook.Add("loadCustomDarkRPItems", "ezjobs init", function()
 			net.Start("ezJobGettable")
 			net.SendToServer()
 		end)
-		net.Receive("ezJobPushtable",function ()
+
+		net.Receive("ezJobPushtable", function()
 			local cat = net.ReadTable()
 			local tbl = net.ReadUInt(15)
 			tbl = net.ReadData(tbl) -- i can't really do something else, gmod WriteTable system is fuckedup
 			tbl = util.Decompress(tbl)
 			tbl = util.JSONToTable(tbl)
+
 			for k, v in pairs(cat) do
 				ezJobs.createcategory(v.name, v.color, v.order)
 			end
+
 			for k, v in pairs(tbl) do
 				ezJobs.createjob(v)
 			end
+
 			hook.Run("ezJobsLoaded")
 		end)
 	else
 		include("ezjobs/server/data.lua")
 		ezJobs.restoreconfig()
+
 		for k, v in pairs(ezJobs.catoriginal or {}) do
 			ezJobs.createcategory(v.name, v.color)
 		end
+
 		for k, v in pairs(ezJobs.jobsoriginal) do
 			ezJobs.createjob(v)
 		end
 
 		hook.Run("ezJobsLoaded")
 		ezJobs.loaded = true
+		file.Write("exported_ezjobs.txt", "")
 
-		file.Write("exported_ezjobs.txt","")
 		for k, v in pairs(ezJobs.catoriginal or {}) do
 			file.Append("exported_ezjobs.txt", ezJobs.cattostring(v.name, v.color, v.order))
 		end
+
 		for k, v in pairs(ezJobs.jobsoriginal) do
-			file.Append("exported_ezjobs.txt",ezJobs.jobtostring(v))
+			file.Append("exported_ezjobs.txt", ezJobs.jobtostring(v))
 		end
 	end
 end)
