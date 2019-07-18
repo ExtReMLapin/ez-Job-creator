@@ -205,3 +205,9 @@ easy darkrp job maker
 darkrp job creator
 
 comment faire job darkrp
+
+
+
+Steam account of the dev : https://steamcommunity.com/profiles/76561198001451981 
+
+(For DMCA reasons)
