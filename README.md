@@ -1,4 +1,4 @@
-# **IF INSTALLING IT ON LINUX, CHANGE THE FOLDERNAME TO `ezjobs` (all lowercase)
+# **IF INSTALLING IT ON LINUX, CHANGE THE FOLDERNAME TO `ezjobs` (all lowercase)**
 
 
 # gmod-ez-job-creator
